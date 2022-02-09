@@ -2,6 +2,23 @@
 .envrc
 .direnv
 .tool-versions
+.bundle
+Gemfile.lock
 
-# Ignore generated binaries in dist
-dist/
+# Ignore local Terraform state and lock files
+.terraform
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# Ignore any auto-applied tfvars files
+terraform.tfvars
+terraform.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Ignore terraform-kitchen files
+.kitchen
+test/setup/harness.tfvars
+test/reports/*
+!test/reports/.gitkeep

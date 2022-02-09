@@ -27,17 +27,3 @@ jobs:
           sudo chmod 0755 /usr/local/bin/terraform-docs
       - uses: actions/setup-python@v2
       - uses: pre-commit/action@v2.0.3
-  hadolint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: hadolint/hadolint-action@v1.6.0
-        with:
-          dockerfile: Dockerfile
-  golangci-lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: golangci/golangci-lint-action@v2
-        with:
-          version: latest

@@ -1,8 +1,0 @@
-# TODO: @memes - update as necessary and rename to .envrc
-use asdf
-
-# Python via .tool-versions
-layout python
-
-# Ruby via .tool-versions
-# layout ruby
