@@ -1,0 +1,26 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "words": [
+        "yamllint",
+        "markdownlint",
+        "goreleaser",
+        "hadolint",
+        "fileignoreconfig",
+        "venv",
+        "pastebin",
+        "thumbsup",
+        "golangci",
+        "hashicorp",
+        "DOCKERHUB",
+        "workdir",
+        "trimpath",
+        "ldflags",
+        "incpatch",
+        "opencontainers",
+        "goarch"
+    ],
+    "flagWords": [
+        "hte"
+    ]
+}

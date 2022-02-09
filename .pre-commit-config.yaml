@@ -1,0 +1,33 @@
+# TODO: @memes - remove unused plugins for project
+---
+# spell-checker:disable
+repos:
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.26.3
+    hooks:
+      - id: yamllint
+        files: \.(yml|yaml|talismanrc)$
+        types: [file, yaml]
+        entry: yamllint --strict
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.62.3
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_docs
+        args: ['--args=--sort-by=required --hide=providers']
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.8.0.4
+    hooks:
+      - id: shellcheck
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/thoughtworks/talisman
+    rev: v1.23.0
+    hooks:
+      - id: talisman-commit
