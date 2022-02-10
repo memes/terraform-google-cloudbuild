@@ -1,0 +1,64 @@
+---
+name: cloudbuild-trigger
+title: Google Cloud Build verification
+maintainer: Matthew Emes <memes@matthewemes.com>
+license: Apache-2.0
+version: 0.0.1
+supports:
+  - platform: gcp
+depends:
+  - name: inspec-gcp
+    git: https://github.com/inspec/inspec-gcp.git
+    tag: v1.10.0
+inputs:
+  - name: output_prefix
+    type: string
+    required: true
+  - name: output_project_id
+    type: string
+    required: true
+  - name: output_github_repo
+    type: string
+    required: false
+  - name: output_gsr_repo
+    type: string
+    required: false
+  - name: output_filename
+    type: string
+    required: true
+  - name: output_trigger_config
+    type: hash
+    required: true
+  - name: output_name
+    type: string
+    required: true
+  - name: output_description
+    type: string
+    required: false
+  - name: output_disabled
+    type: boolean
+    required: false
+  - name: output_service_account
+    type: string
+    required: false
+  - name: output_tags
+    type: array
+    required: false
+  - name: output_ignored_files
+    type: array
+    required: false
+  - name: output_included_files
+    type: array
+    required: false
+  - name: output_substitutions
+    type: hash
+    required: false
+  - name: output_dir
+    type: string
+    required: false
+  - name: output_invert_regex
+    type: boolean
+    required: false
+  - name: output_trigger_id
+    type: string
+    required: true

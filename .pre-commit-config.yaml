@@ -7,6 +7,7 @@ repos:
       - id: yamllint
         files: \.(yml|yaml|talismanrc)$
         types: [file, yaml]
+        exclude: kitchen.ya?ml$
         entry: yamllint --strict
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.62.3
@@ -17,6 +18,7 @@ repos:
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
     rev: 2.1.5
     hooks:
+      - id: bundler-audit
       - id: reek
       - id: rubocop
   - repo: https://github.com/pre-commit/pre-commit-hooks

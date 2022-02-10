@@ -1,0 +1,10 @@
+# The GCP project id where the Cloud Build triggers will be created, and the
+# ephemeral Google Source Repo created. You will need owner-like permissions here.
+project_id  = "my-project-id"
+
+# An existing GitHub repository for which Cloud Build app has *already* been
+# authorized, can be public or private.
+# The tests will not make any changes to the repo, but the GitHub module will
+# fail to create trigger if the pre-requisite Cloud Build app authorization has
+# not been completed.
+github_repo = "owner/repo"
