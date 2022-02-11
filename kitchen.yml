@@ -223,3 +223,83 @@ suites:
           reporter:
             - cli
             - documentation:<%= report_dir %>/<%= report_ts %>/gsr-tag.txt
+  - name: example-github-branch
+    driver:
+      root_module_directory: test/fixtures/examples/github-branch
+    verifier:
+      systems:
+        - name: cloudbuild-trigger
+          backend: gcp
+          profile_locations:
+            - test/profiles/cloudbuild-trigger
+          controls:
+            - cloudbuild-common
+            - cloudbuild-filename
+            - github-push
+          reporter:
+            - cli
+            - documentation:<%= report_dir %>/<%= report_ts %>/example-github-branch.txt
+  - name: example-github-pr
+    driver:
+      root_module_directory: test/fixtures/examples/github-pr
+    verifier:
+      systems:
+        - name: cloudbuild-trigger
+          backend: gcp
+          profile_locations:
+            - test/profiles/cloudbuild-trigger
+          controls:
+            - cloudbuild-common
+            - cloudbuild-filename
+            - github-pr
+          reporter:
+            - cli
+            - documentation:<%= report_dir %>/<%= report_ts %>/example-github-pr.txt
+  - name: example-github-tag
+    driver:
+      root_module_directory: test/fixtures/examples/github-tag
+    verifier:
+      systems:
+        - name: cloudbuild-trigger
+          backend: gcp
+          profile_locations:
+            - test/profiles/cloudbuild-trigger
+          controls:
+            - cloudbuild-common
+            - cloudbuild-filename
+            - github-push
+          reporter:
+            - cli
+            - documentation:<%= report_dir %>/<%= report_ts %>/example-github-tag.txt
+  - name: example-gsr-branch
+    driver:
+      root_module_directory: test/fixtures/examples/gsr-branch
+    verifier:
+      systems:
+        - name: cloudbuild-trigger
+          backend: gcp
+          profile_locations:
+            - test/profiles/cloudbuild-trigger
+          controls:
+            - cloudbuild-common
+            - cloudbuild-filename
+            - gsr
+          reporter:
+            - cli
+            - documentation:<%= report_dir %>/<%= report_ts %>/example-gsr-branch.txt
+  - name: example-gsr-tag
+    driver:
+      root_module_directory: test/fixtures/examples/gsr-tag
+    verifier:
+      systems:
+        - name: cloudbuild-trigger
+          backend: gcp
+          profile_locations:
+            - test/profiles/cloudbuild-trigger
+          controls:
+            - cloudbuild-common
+            - cloudbuild-filename
+            - gsr
+          reporter:
+            - cli
+            - documentation:<%= report_dir %>/<%= report_ts %>/example-gsr-tag.txt

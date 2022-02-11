@@ -22,3 +22,5 @@ terraform.tfvars.json
 test/setup/harness.tfvars
 test/reports/*
 !test/reports/.gitkeep
+test/ephemeral/*
+!test/ephemeral/.gitkeep
