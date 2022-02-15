@@ -3,4 +3,6 @@ fileignoreconfig:
 - filename: modules/github/README.md
   checksum: c804bd152daa9d498d1b9ac1981e419c92e3a76f6e35fc58851535bfc09802c4
 - filename: README.md
-  checksum: cdc1e927391b1c726de3618684d4c262ab17d734d6cd2918efa6041c14be8933
+  checksum: d55c8fd08e9e49fd34a1186f59dbcdff07e7ba981a3fde26a043ab56258807b4
+- filename: modules/google-source-repo/README.md
+  checksum: 9aeaee523479e4ff0db8d57a574e77703ad68fabe5c0f1514c584bc52441e44e

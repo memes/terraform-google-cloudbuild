@@ -138,8 +138,9 @@ variable "invert_regex" {
   type        = bool
   default     = false
   description = <<-EOD
-If set, the tag or branch regexes used to match Google Source Repository events
-will be inverted. Default is false.
+If set, the tag or branch regular expressions used to match Google Source Repository
+events will be effectively inverted, and events that *do not match* the tag or
+branch pattern will be executed. Default is false.
 EOD
 }
 

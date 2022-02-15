@@ -125,8 +125,9 @@ variable "invert_regex" {
   type        = bool
   default     = false
   description = <<-EOD
-If set, the tag or branch regexes used to match GitHub events will be inverted.
-Default is false.
+If set, the tag or branch regular expressions used to match GitHub events will
+be effectively inverted, and events that *do not match* the tag or branch pattern
+will be executed. Default is false.
 EOD
 }
 
@@ -156,6 +157,8 @@ variable "trigger_config" {
   })
   description = <<-EOD
 The trigger_config variable defines the type of trigger (GitHub, GSR, etc), and
-the specific configuration options needed.
+the specific configuration options needed. The combination of fields is too
+complex to validate effectively, use a scenario specific submodule which hides
+this complexity!
 EOD
 }
