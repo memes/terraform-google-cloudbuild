@@ -1,8 +1,16 @@
 # Google Cloud Build module for Terraform
 
-This
+Google Cloud Build offers a variety of different ways to implement a GitOps-like
+trigger, with support for many commercial Git hosting providers. The purpose of
+these modules is to make it easier to create a Cloud Build trigger for common
+trigger scenarios; e.g. a GitHub App trigger, a GSR trigger, etc.
 
-> PREFER TO USE THE SPECIFIC SUBMODULE FOR YOUR TRIGGER!
+While it is possible to use this root module directly, the scenario specific
+submodules have additional validation to make it easier to provision a suitable
+trigger without running afoul of the full Cloud Build trigger constraints. To
+reinforce this, all examples use a scenario module.
+
+> TL;DR - PREFER TO USE THE SCENARIO SPECIFIC SUBMODULE FOR YOUR TRIGGER!
 
 ## Scenario modules
 
