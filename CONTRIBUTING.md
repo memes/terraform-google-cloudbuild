@@ -29,3 +29,57 @@ integrate the tool before pushing changes to GitHub.
 
 The hook will ensure that `pre-commit` will be run against all staged changes
 during `git commit`.
+
+## Testing
+
+This repo uses [kitchen-terraform](https://newcontext-oss.github.io/kitchen-terraform/)
+to create test cases for modules and examples. The Terraform in [setup](test/setup/)
+folder will create a harness for the test cases, after which the `kitchen` command
+can be used to launch and verify scenarios.
+
+1. Install the ruby gems
+
+   ```shell
+   bundle install
+   ```
+
+2. Set test harness parameters
+
+   Create/modify `test/setup/terraform.tfvars`
+
+   ```hcl
+   # The GCP project id where the Cloud Build triggers will be created, and the
+   # ephemeral Google Source Repo created. You will need owner-like permissions here.
+   project_id  = "my-project-id"
+
+   # An existing GitHub repository for which Cloud Build app has *already* been
+   # authorized, can be public or private.
+   # The tests will not make any changes to the repo, but the GitHub module will
+   # fail to create trigger if the pre-requisite Cloud Build app authorization has
+   # not been completed.
+   github_repo = "owner/repo"
+
+   ```
+
+3. Run the tests
+
+   The simplest way is to execute `make` in the root directory. The default
+   target will setup the test harness foundations, and then cycle through
+   `kitchen test` for all scenarios.
+
+   Reports for all tests are generated in `test/reports/YYYY-MM-DD-HH-MM-SS`.
+
+   > NOTE: Individual kitchen actions can be executed through `make`, with the
+   > correct dependencies, by substituting `make action[.pattern]` for
+   > `kitchen action [pattern]`. For example, instead of `kitchen verify PATTERN`,
+   > use `make verify.PATTERN`. Bare actions are supported too, e.g. `make test`
+   > instead of `kitchen test`.
+
+4. Clean-up after testing
+
+   This will remove any remaining converged kitchen tests, and destroy any shared
+   Google Cloud resources.
+
+   ```shell
+   make clean
+   ```
