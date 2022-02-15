@@ -12,7 +12,9 @@ included_files = input('output_included_files', value: []).sort
 substitutions = input('output_substitutions', value: {})
 filename = input('output_filename')
 
+# rubocop:disable Metrics/BlockLength
 control 'cloudbuild-common' do
+  impact 1.0
   title 'Ensure Cloud Build trigger has expected common attributes'
   describe google_cloudbuild_trigger(project: project_id, id: trigger_id) do
     it { should exist }
@@ -50,8 +52,10 @@ control 'cloudbuild-common' do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
 
 control 'cloudbuild-filename' do
+  impact 1.0
   title 'Ensure Cloud Build trigger has expected declared filename attributes'
   describe google_cloudbuild_trigger(project: project_id, id: trigger_id) do
     its('filename') { should cmp filename }

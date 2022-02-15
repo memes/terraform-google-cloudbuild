@@ -99,4 +99,6 @@ tag.%:
 	@(grep -Eq '^## \[$(subst .,\.,$(*:v%=%))\] - [0-9]{4}(?:-[0-9]{2}){2}' CHANGELOG.md && \
 		grep -Eq '^\[$(subst .,\.,$(*:v%=%))\]: https://github.com/' CHANGELOG.md) || \
 		(echo "CHANGELOG is missing tag entry"; exit 1)
+	grep -Eq '^version:[ \t]*$(subst .,\.,$(*:v%=%))[ \t]*$$' test/profiles/cloudbuild-trigger/inspec.yml || \
+		(echo "inspec.yml has incorrect tag"; exit 1)
 	git tag -am 'Tagging release $*' $*
