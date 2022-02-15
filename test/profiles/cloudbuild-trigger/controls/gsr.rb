@@ -6,7 +6,9 @@ gsr_repo = input('output_gsr_repo')
 trigger_config = input('output_trigger_config')
 invert_regex = input('output_invert_regex', value: false)
 
+# rubocop:disable Metrics/BlockLength
 control 'gsr' do
+  impact 1.0
   title 'Ensure Cloud Build trigger is configured for Google Source Repository'
 
   describe google_cloudbuild_trigger(project: project_id, id: trigger_id).trigger_template do
@@ -35,3 +37,4 @@ control 'gsr' do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

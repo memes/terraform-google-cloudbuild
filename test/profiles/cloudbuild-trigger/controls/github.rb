@@ -7,6 +7,7 @@ trigger_config = input('output_trigger_config')
 invert_regex = input('output_invert_regex', value: false)
 
 control 'github-common' do
+  impact 1.0
   title 'Ensure Cloud Build trigger is configured for GitHub'
 
   describe google_cloudbuild_trigger(project: project_id, id: trigger_id).github do
@@ -16,7 +17,9 @@ control 'github-common' do
   end
 end
 
+# rubocop:disable Metrics/BlockLength
 control 'github-pr' do
+  impact 1.0
   title 'Ensure Cloud Build trigger is configured for GitHub PR'
 
   describe google_cloudbuild_trigger(project: project_id, id: trigger_id).github.pull_request do
@@ -47,8 +50,11 @@ control 'github-pr' do
     its('tag') { should be nil }
   end
 end
+# rubocop:enable Metrics/BlockLength
 
+# rubocop:disable Metrics/BlockLength
 control 'github-push' do
+  impact 1.0
   title 'Ensure Cloud Build trigger exists for GitHub push'
 
   describe google_cloudbuild_trigger(project: project_id, id: trigger_id).github.pull_request do
@@ -77,3 +83,4 @@ control 'github-push' do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
