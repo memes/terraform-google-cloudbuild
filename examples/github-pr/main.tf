@@ -17,7 +17,7 @@ module "trigger" {
   description = "An example Cloud Build trigger on PR in GitHub repo."
   source_repo = var.source_repo
   project_id  = var.project_id
-  filename    = "${path.module}/cloudbuild.yml"
+  filename    = "examples/github-pr/cloudbuild.yml"
   substitutions = {
     _MSG = "Example GitHub simple PR trigger."
   }

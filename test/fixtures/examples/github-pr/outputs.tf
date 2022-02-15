@@ -15,7 +15,7 @@ output "github_repo" {
 }
 
 output "filename" {
-  value = "../../../ephemeral/github-pr/cloudbuild.yml"
+  value = "examples/github-pr/cloudbuild.yml"
 }
 
 output "trigger_config" {

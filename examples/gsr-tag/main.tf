@@ -17,7 +17,7 @@ module "trigger" {
   description = "An example Cloud Build trigger on new tags in Google Source Repository."
   source_repo = var.source_repo
   project_id  = var.project_id
-  filename    = "${path.module}/cloudbuild.yml"
+  filename    = "examples/gsr-tag/cloudbuild.yml"
   substitutions = {
     _MSG = "Example GSR simple tag trigger."
   }

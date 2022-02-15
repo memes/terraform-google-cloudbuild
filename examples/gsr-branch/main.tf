@@ -17,7 +17,7 @@ module "trigger" {
   description = "An example Cloud Build trigger on branch updates in Google Source Repository."
   source_repo = var.source_repo
   project_id  = var.project_id
-  filename    = "${path.module}/cloudbuild.yml"
+  filename    = "examples/gsr-branch/cloudbuild.yml"
   substitutions = {
     _MSG = "Example GSR simple branch trigger."
   }
