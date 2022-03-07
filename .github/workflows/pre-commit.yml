@@ -16,7 +16,7 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: install talisman
         run: |
           sudo curl -sLo /usr/local/bin/talisman https://github.com/thoughtworks/talisman/releases/download/v1.23.0/talisman_linux_amd64
