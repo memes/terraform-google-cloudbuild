@@ -25,5 +25,5 @@ jobs:
         run: |
           sudo sh -c 'curl -sL https://github.com/terraform-docs/terraform-docs/releases/download/v0.16.0/terraform-docs-v0.16.0-linux-amd64.tar.gz | tar xzf - -C /usr/local/bin'
           sudo chmod 0755 /usr/local/bin/terraform-docs
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
       - uses: pre-commit/action@v3.0.0
