@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: install talisman
         run: |
-          sudo curl -sLo /usr/local/bin/talisman https://github.com/thoughtworks/talisman/releases/download/v1.23.0/talisman_linux_amd64
+          sudo curl -sLo /usr/local/bin/talisman https://github.com/thoughtworks/talisman/releases/download/v1.29.4/talisman_linux_amd64
           sudo chmod 0755 /usr/local/bin/talisman
       - name: Install terraform-docs
         run: |
