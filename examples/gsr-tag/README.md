@@ -56,7 +56,7 @@ GitHub repo.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_trigger"></a> [trigger](#module\_trigger) | memes/cloudbuild/google//modules/google-source-repo | 1.0.0 |
+| <a name="module_trigger"></a> [trigger](#module\_trigger) | memes/cloudbuild/google//modules/google-source-repo | 1.0.1 |
 
 ## Resources
 

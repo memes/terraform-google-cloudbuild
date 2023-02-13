@@ -12,7 +12,7 @@ terraform {
 # repo.
 module "trigger" {
   source      = "memes/cloudbuild/google//modules/google-source-repo"
-  version     = "1.0.0"
+  version     = "1.0.1"
   name        = "example-gsr-tag"
   description = "An example Cloud Build trigger on new tags in Google Source Repository."
   source_repo = var.source_repo

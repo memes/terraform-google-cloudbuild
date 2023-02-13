@@ -12,7 +12,7 @@ terraform {
 # main branch of GitHub repo
 module "trigger" {
   source      = "memes/cloudbuild/google//modules/github"
-  version     = "1.0.0"
+  version     = "1.0.1"
   name        = "example-github-pr"
   description = "An example Cloud Build trigger on PR in GitHub repo."
   source_repo = var.source_repo
