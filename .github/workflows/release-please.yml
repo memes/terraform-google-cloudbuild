@@ -17,6 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Release Please
-        uses: GoogleCloudPlatform/release-please-action@v3.7.5
+        uses: GoogleCloudPlatform/release-please-action@v3.7.6
         with:
           release-type: terraform-module
