@@ -3,7 +3,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = ">= 4.8.0"
+      version = ">= 4.36.0"
     }
   }
 }
@@ -12,7 +12,7 @@ terraform {
 # repo.
 module "trigger" {
   source      = "memes/cloudbuild/google//modules/google-source-repo"
-  version     = "1.0.1"
+  version     = "1.1.0"
   name        = "example-gsr-tag"
   description = "An example Cloud Build trigger on new tags in Google Source Repository."
   source_repo = var.source_repo

@@ -3,7 +3,7 @@ name: cloudbuild-trigger
 title: Google Cloud Build verification
 maintainer: Matthew Emes <memes@matthewemes.com>
 license: Apache-2.0
-version: 1.0.0
+version: 1.1.0
 supports:
   - platform: gcp
 depends:
@@ -60,5 +60,11 @@ inputs:
     type: boolean
     required: false
   - name: output_trigger_id
+    type: string
+    required: true
+  - name: output_location
+    type: string
+    required: false
+  - name: output_id
     type: string
     required: true

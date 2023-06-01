@@ -62,6 +62,10 @@ output "invert_regex" {
   value = var.invert_regex
 }
 
+output "location" {
+  value = var.location
+}
+
 #
 # Module under test outputs
 #

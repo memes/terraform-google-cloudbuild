@@ -10,27 +10,28 @@ output "project_id" {
   value = var.project_id
 }
 
-output "gsr_repo" {
-  value = var.gsr_repo
+output "github_repo" {
+  value = var.github_repo
 }
 
 output "filename" {
-  value = "examples/gsr-tag/cloudbuild.yml"
+  value = "examples/github-branch/cloudbuild.yml"
 }
 
 output "trigger_config" {
   value = {
-    branch_regex = null
-    tag_regex    = ".*"
+    is_pr_trigger   = false
+    branch_regex    = "main$"
+    comment_control = null
   }
 }
 
 output "name" {
-  value = "gsr-tag"
+  value = "github-branch"
 }
 
 output "description" {
-  value = "An example Cloud Build trigger on new tags in Google Source Repository."
+  value = "An example Cloud Build trigger on branch changes in GitHub repo."
 }
 
 output "disabled" {
@@ -55,7 +56,7 @@ output "included_files" {
 
 output "substitutions" {
   value = {
-    _MSG = "Example GSR simple tag trigger."
+    _MSG = "Example GitHub simple branch trigger."
   }
 }
 
@@ -68,7 +69,7 @@ output "invert_regex" {
 }
 
 output "location" {
-  value = "global"
+  value = "us-west1"
 }
 
 #

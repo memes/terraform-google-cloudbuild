@@ -3,7 +3,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = ">= 4.8.0"
+      version = ">= 4.36.0"
     }
   }
 }
@@ -35,4 +35,5 @@ module "trigger" {
     pubsub  = null
     webhook = null
   }
+  location = var.location
 }

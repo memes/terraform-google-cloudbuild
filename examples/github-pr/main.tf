@@ -3,7 +3,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = ">= 4.8.0"
+      version = ">= 4.36.0"
     }
   }
 }
@@ -12,7 +12,7 @@ terraform {
 # main branch of GitHub repo
 module "trigger" {
   source      = "memes/cloudbuild/google//modules/github"
-  version     = "1.0.1"
+  version     = "1.1.0"
   name        = "example-github-pr"
   description = "An example Cloud Build trigger on PR in GitHub repo."
   source_repo = var.source_repo

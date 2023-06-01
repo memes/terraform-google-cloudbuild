@@ -13,13 +13,14 @@ terraform {
 module "trigger" {
   source      = "memes/cloudbuild/google//modules/google-source-repo"
   version     = "1.1.0"
-  name        = "example-gsr-branch"
-  description = "An example Cloud Build trigger on branch updates in Google Source Repository."
+  name        = "example-gsr-location"
+  description = "An example Cloud Build trigger on branch updates in Google Source Repository that builds in us-west1."
   source_repo = var.source_repo
   project_id  = var.project_id
-  filename    = "examples/gsr-branch/cloudbuild.yml"
+  filename    = "examples/gsr-location/cloudbuild.yml"
+  location    = "us-west1"
   substitutions = {
-    _MSG = "Example GSR simple branch trigger."
+    _MSG = "Example GSR simple branch trigger in us-west1."
   }
   trigger_config = {
     branch_regex = "master$"

@@ -48,7 +48,7 @@ converge.%: test/setup/harness.tfvars
 converge: test/setup/harness.tfvars
 	kitchen converge
 
-EXAMPLES=github-branch github-pr github-tag gsr-branch gsr-tag
+EXAMPLES=github-branch github-pr github-tag gsr-branch gsr-tag github-location gsr-location
 
 test/setup/harness.tfvars: $(wildcard test/setup/*.tf) $(wildcard test/setup/*.auto.tfvars) $(wildcard test/setup/terraform.tfvars) $(addprefix test/ephemeral/,$(addsuffix /main.tf,$(EXAMPLES)))
 	terraform -chdir=$(@D) init -input=false
@@ -81,24 +81,20 @@ realclean: clean
 	find . -type f -name terraform.tfstate.backup -exec rm -f {} +
 	rm -rf .kitchen
 
-# Helper to ensure code is ready for tagging
-# 1. Tag is a valid semver with v prefix (e.g. v1.0.0)
-# 1. Git tree is clean
-# 2. Each module is using a Terraform registry source and the version matches
+# Helper to ensure code is ready for release
+# 1. Proposed release is a valid semver with v prefix (e.g. v1.0.0)
+# 2. Git tree is clean
+# 3. Each module is using a Terraform registry source and the version matches
 #    the tag to be applied
-# 3. CHANGELOG has an entry for the tag
-# if all those pass, tag HEAD with version
-.PHONY: tag.%
-tag.%:
+# if all those pass return success
+.PHONY: pre-release.%
+pre-release.%:
 	@echo '$*' | grep -Eq '^v(?:[0-9]+\.){2}[0-9]+$$' || \
-		(echo "Tag doesn't meet requirements"; exit 1)
+		(echo "Version doesn't meet requirements"; exit 1)
 	@test "$(shell git status --porcelain | wc -l | grep -Eo '[0-9]+')" == "0" || \
 		(echo "Git tree is unclean"; exit 1)
 	@find examples -type f -name main.tf -print0 | \
 		xargs -0 awk 'BEGIN{m=0;s=0;v=0}; /module "trigger"/ {m=1}; m==1 && /source[ \t]*=[ \t]*"memes\/cloudbuild\/google/ {s++}; m==1 && /version[ \t]*=[ \t]*"$(subst .,\.,$(*:v%=%))"/ {v=1}; END{if (s==0) { printf "%s has incorrect source", FILENAME}; if (v==0) { printf "%s has incorrect version\n", FILENAME}; if (s==0 || v==0) { exit 1}}'
-	@(grep -Eq '^## \[$(subst .,\.,$(*:v%=%))\] - [0-9]{4}(?:-[0-9]{2}){2}' CHANGELOG.md && \
-		grep -Eq '^\[$(subst .,\.,$(*:v%=%))\]: https://github.com/' CHANGELOG.md) || \
-		(echo "CHANGELOG is missing tag entry"; exit 1)
-	grep -Eq '^version:[ \t]*$(subst .,\.,$(*:v%=%))[ \t]*$$' test/profiles/cloudbuild-trigger/inspec.yml || \
+	@grep -Eq '^version:[ \t]*$(subst .,\.,$(*:v%=%))[ \t]*$$' test/profiles/cloudbuild-trigger/inspec.yml || \
 		(echo "inspec.yml has incorrect tag"; exit 1)
-	git tag -am 'Tagging release $*' $*
+	@echo 'Ready to release $*' $*

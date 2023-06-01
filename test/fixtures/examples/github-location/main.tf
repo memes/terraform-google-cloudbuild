@@ -9,7 +9,7 @@ terraform {
 }
 
 module "test" {
-  source      = "../../../ephemeral/gsr-branch/"
+  source      = "../../../ephemeral/github-location/"
   project_id  = var.project_id
-  source_repo = var.gsr_repo
+  source_repo = var.github_repo
 }

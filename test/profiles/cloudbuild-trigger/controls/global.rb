@@ -13,9 +13,10 @@ substitutions = input('output_substitutions', value: {})
 filename = input('output_filename')
 
 # rubocop:disable Metrics/BlockLength
-control 'cloudbuild-common' do
+control 'global' do
   impact 1.0
-  title 'Ensure Cloud Build trigger has expected common attributes'
+  title 'Ensure global Cloud Build trigger has expected common attributes'
+
   describe google_cloudbuild_trigger(project: project_id, id: trigger_id) do
     it { should exist }
     its('name') { should match(/^#{prefix}-#{name}$/) }
@@ -54,9 +55,9 @@ control 'cloudbuild-common' do
 end
 # rubocop:enable Metrics/BlockLength
 
-control 'cloudbuild-filename' do
+control 'global-filename' do
   impact 1.0
-  title 'Ensure Cloud Build trigger has expected declared filename attributes'
+  title 'Ensure global Cloud Build trigger has expected declared filename attributes'
   describe google_cloudbuild_trigger(project: project_id, id: trigger_id) do
     its('filename') { should cmp filename }
     its('build') { should_not be nil }

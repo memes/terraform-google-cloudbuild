@@ -1,24 +1,27 @@
-# Example: Cloud Build triggered on GitHub tag
+# Example: Regional Cloud Build triggered on Google Source Repository branch changes
 
-This example will create a Cloud Build trigger for a GitHub repo, which will be
-triggered whenever **any** tag is pushed to the repository.
+This example will create a Cloud Build trigger in us-west1 region, for a GSR
+repo triggered whenever a change is pushed to the repo's `main` branch.
 
-> By default, the [github](../../modules/github/) module has a default
-> `trigger_config` with a wildcard that matches any tag value, so an explicit
-> configuration is not needed. See the [github](../../modules/github/) module
-> documentation for more details.
+> To enable this scenario, the module declaration has a `trigger_config` with
+> `branch_regex` set to `master$`, and `tag_regex` set to `null`.
 
 ```hcl
 module "trigger" {
-  source      = "memes/cloudbuild/google//modules/github"
+  source      = "memes/cloudbuild/google//modules/google-source-repo"
   version     = "1.0.0"
-  name        = "example-github-tag"
-  description = "An example Cloud Build trigger on new tags in GitHub repo."
+  name        = "example-gsr-branch"
+  description = "An example Cloud Build trigger on branch updates in Google Source Repository that build in us-west1."
   source_repo = var.source_repo
   project_id  = var.project_id
-  filename    = "examples/github-tag/cloudbuild.yml"
+  filename    = "examples/gsr-branch/cloudbuild.yml"
+  location    = "us-west1"
   substitutions = {
-    _MSG = "Example GitHub simple tag trigger."
+    _MSG = "Example GSR simple branch trigger in us-west1."
+  }
+  trigger_config = {
+    branch_regex = "master$"
+    tag_regex    = null
   }
 }
 ```
@@ -40,8 +43,8 @@ module "trigger" {
     ```
 
 At this point there is a new Cloud Build trigger that will execute the steps
-given in [cloudbuild.yml](cloudbuild.yml) whenever any tag is pushed to the
-GitHub repo.
+given in [cloudbuild.yml](cloudbuild.yml) whenever changes are pushed to GitHub
+in a branch that matches the regular expression `main$`.
 
 <!-- markdownlint-disable no-inline-html no-bare-urls -->
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
@@ -56,7 +59,7 @@ GitHub repo.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_trigger"></a> [trigger](#module\_trigger) | memes/cloudbuild/google//modules/github | 1.1.0 |
+| <a name="module_trigger"></a> [trigger](#module\_trigger) | memes/cloudbuild/google//modules/google-source-repo | 1.1.0 |
 
 ## Resources
 
@@ -67,7 +70,7 @@ No resources.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The GCP project id where the Cloud Build trigger will be installed. | `string` | n/a | yes |
-| <a name="input_source_repo"></a> [source\_repo](#input\_source\_repo) | The GitHub repository that will be the source of Cloud Build trigger events. Must<br>be in the form owner/repo. For example, to trigger off events in this repo,<br>`source_repo = "memes/terraform-google-cloudbuild"`. | `string` | n/a | yes |
+| <a name="input_source_repo"></a> [source\_repo](#input\_source\_repo) | The Google Source Repository repository that will be the source of Cloud Build<br>trigger events. Must be a fully-qualified repo name of the form<br>'projects/my-gcp-project/repos/my-repo'. | `string` | n/a | yes |
 
 ## Outputs
 
