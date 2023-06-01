@@ -48,7 +48,7 @@ converge.%: test/setup/harness.tfvars
 converge: test/setup/harness.tfvars
 	kitchen converge
 
-EXAMPLES=github-branch github-pr github-tag gsr-branch gsr-tag
+EXAMPLES=github-branch github-pr github-tag gsr-branch gsr-tag github-location gsr-location
 
 test/setup/harness.tfvars: $(wildcard test/setup/*.tf) $(wildcard test/setup/*.auto.tfvars) $(wildcard test/setup/terraform.tfvars) $(addprefix test/ephemeral/,$(addsuffix /main.tf,$(EXAMPLES)))
 	terraform -chdir=$(@D) init -input=false

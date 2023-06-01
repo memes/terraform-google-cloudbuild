@@ -89,3 +89,8 @@ variable "trigger_config" {
     comment_control = null
   }
 }
+
+variable "location" {
+  type    = string
+  default = "global"
+}

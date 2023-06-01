@@ -3,7 +3,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = ">= 4.8.0"
+      version = ">= 4.36.0"
     }
   }
 }
@@ -28,6 +28,7 @@ resource "google_cloudbuild_trigger" "trigger" {
   ignored_files   = var.ignored_files
   included_files  = var.included_files
   filename        = var.filename
+  location        = var.location
 
   # Google Source Repository trigger
   dynamic "trigger_template" {

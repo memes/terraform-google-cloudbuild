@@ -85,3 +85,8 @@ variable "trigger_config" {
     tag_regex    = ".*"
   }
 }
+
+variable "location" {
+  type    = string
+  default = "global"
+}

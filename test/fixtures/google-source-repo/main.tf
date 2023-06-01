@@ -3,7 +3,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = ">= 4.8.0"
+      version = ">= 4.36.0"
     }
   }
 }
@@ -20,6 +20,7 @@ module "test" {
   included_files  = var.included_files
   substitutions   = var.substitutions
   filename        = var.filename
+  location        = var.location
   source_repo     = var.gsr_repo
   dir             = var.dir
   invert_regex    = var.invert_regex

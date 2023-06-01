@@ -50,8 +50,8 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - github-push
           reporter:
             - cli
@@ -79,8 +79,8 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - github-push
           reporter:
             - cli
@@ -100,8 +100,8 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - github-push
           reporter:
             - cli
@@ -129,8 +129,8 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - github-pr
           reporter:
             - cli
@@ -150,8 +150,8 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - github-pr
           reporter:
             - cli
@@ -168,8 +168,8 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - gsr
           reporter:
             - cli
@@ -197,8 +197,8 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - gsr
           reporter:
             - cli
@@ -217,8 +217,8 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - gsr
           reporter:
             - cli
@@ -233,8 +233,8 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - github-push
           reporter:
             - cli
@@ -249,8 +249,8 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - github-pr
           reporter:
             - cli
@@ -265,8 +265,8 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - github-push
           reporter:
             - cli
@@ -281,8 +281,8 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - gsr
           reporter:
             - cli
@@ -297,9 +297,37 @@ suites:
           profile_locations:
             - test/profiles/cloudbuild-trigger
           controls:
-            - cloudbuild-common
-            - cloudbuild-filename
+            - global
+            - global-filename
             - gsr
           reporter:
             - cli
             - documentation:<%= report_dir %>/<%= report_ts %>/example-gsr-tag.txt
+  - name: example-github-location
+    driver:
+      root_module_directory: test/fixtures/examples/github-location
+    verifier:
+      systems:
+        - name: cloudbuild-trigger
+          backend: gcp
+          profile_locations:
+            - test/profiles/cloudbuild-trigger
+          controls:
+            - regional
+          reporter:
+            - cli
+            - documentation:<%= report_dir %>/<%= report_ts %>/example-github-location.txt
+  - name: example-gsr-location
+    driver:
+      root_module_directory: test/fixtures/examples/gsr-location
+    verifier:
+      systems:
+        - name: cloudbuild-trigger
+          backend: gcp
+          profile_locations:
+            - test/profiles/cloudbuild-trigger
+          controls:
+            - regional
+          reporter:
+            - cli
+            - documentation:<%= report_dir %>/<%= report_ts %>/example-gsr-location.txt

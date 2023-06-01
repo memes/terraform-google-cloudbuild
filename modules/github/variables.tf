@@ -174,3 +174,16 @@ If unspecified, the default option will create a trigger for pushes that are tag
 with any value.
 EOD
 }
+
+variable "location" {
+  type = string
+  validation {
+    condition     = can(regex("^(?:global|[a-z]{2,}-[a-z]{2,}[1-9][0-9]*)$", var.location))
+    error_message = "The Cloud Build location must be 'global' or a valid Compute Engine region."
+  }
+  default     = "global"
+  description = <<-EOD
+Specifies the location of the Cloud Build pool to use for the triggered workload.
+The default value is 'global', but any supported Cloud Build location may be used.
+EOD
+}

@@ -13,13 +13,14 @@ terraform {
 module "trigger" {
   source      = "memes/cloudbuild/google//modules/github"
   version     = "1.0.1"
-  name        = "example-github-branch"
-  description = "An example Cloud Build trigger on branch changes in GitHub repo."
+  name        = "example-github-location"
+  description = "An example Cloud Build trigger on branch changes in GitHub repo that builds in us-west1"
   source_repo = var.source_repo
   project_id  = var.project_id
-  filename    = "examples/github-branch/cloudbuild.yml"
+  filename    = "examples/github-location/cloudbuild.yml"
+  location    = "us-west1"
   substitutions = {
-    _MSG = "Example GitHub simple branch trigger."
+    _MSG = "Example GitHub simple trigger in us-west1."
   }
   trigger_config = {
     is_pr_trigger   = false

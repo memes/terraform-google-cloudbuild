@@ -44,7 +44,7 @@ See [CONTRIBUTING](CONTRIBUTING.md) for guidelines.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14.5 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.8.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.36.0 |
 
 ## Modules
 
@@ -71,6 +71,7 @@ No modules.
 | <a name="input_ignored_files"></a> [ignored\_files](#input\_ignored\_files) | An optional set of file globs to ignore when determining the set of source<br>changes. If provided, the list of changed files will be filtered through this<br>list of globs, and the trigger action will proceed only if there are unfiltered<br>files remaining. Default is an empty list, meaning any changes in repo should<br>trigger the action, subject to `included_files`. | `list(string)` | `[]` | no |
 | <a name="input_included_files"></a> [included\_files](#input\_included\_files) | An optional set of file globs to explicitly match when determining the set of<br>source changes. If provided, the list of changed files will be filtered through this<br>list of globs, and the trigger action will proceed only if there are positive<br>matches. Default is an empty list, meaning any changes in repo should<br>trigger the action, subject to `ignored_files`. | `list(string)` | `[]` | no |
 | <a name="input_invert_regex"></a> [invert\_regex](#input\_invert\_regex) | If set, the tag or branch regular expressions used to match GitHub events will<br>be effectively inverted, and events that *do not match* the tag or branch pattern<br>will be executed. Default is false. | `bool` | `false` | no |
+| <a name="input_location"></a> [location](#input\_location) | Specifies the location of the Cloud Build pool to use for the triggered workload.<br>The default value is 'global', but any supported Cloud Build location may be used. | `string` | `"global"` | no |
 | <a name="input_service_account"></a> [service\_account](#input\_service\_account) | An optional way to override the service account used by Cloud Build. If left<br>empty (default), the standard Cloud Build service account for project specified<br>in `project_id` will be used during execution. | `string` | `""` | no |
 | <a name="input_substitutions"></a> [substitutions](#input\_substitutions) | A map of substitution key:value pairs that can be referenced in the build<br>definition. Default is empty. | `map(string)` | `{}` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | An optional set of tags to annotate the Cloud Build trigger. | `set(string)` | `[]` | no |

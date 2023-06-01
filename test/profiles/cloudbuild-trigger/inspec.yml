@@ -62,3 +62,9 @@ inputs:
   - name: output_trigger_id
     type: string
     required: true
+  - name: output_location
+    type: string
+    required: false
+  - name: output_id
+    type: string
+    required: true

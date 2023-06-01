@@ -1,0 +1,12 @@
+# An example Cloud Build configuration that does nothing useful
+---
+steps:
+  - id: echo
+    name: busybox:$_BUSYBOX_TAG
+    args:
+      - echo "$_MSG"
+substitutions:
+  # Busybox tag to use
+  _BUSYBOX_TAG: '1.35.0'
+  # The string to echo
+  _MSG: ''

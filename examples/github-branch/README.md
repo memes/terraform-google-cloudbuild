@@ -55,7 +55,7 @@ in a branch that matches the regular expression `main$`.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14.5 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.8.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.36.0 |
 
 ## Modules
 

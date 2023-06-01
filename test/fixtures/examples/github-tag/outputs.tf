@@ -69,6 +69,10 @@ output "invert_regex" {
   value = false
 }
 
+output "location" {
+  value = "global"
+}
+
 #
 # Module under test outputs
 #
