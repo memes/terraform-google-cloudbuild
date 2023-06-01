@@ -64,7 +64,7 @@ PR that has changes to merge to `main`.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_trigger"></a> [trigger](#module\_trigger) | memes/cloudbuild/google//modules/github | 1.0.1 |
+| <a name="module_trigger"></a> [trigger](#module\_trigger) | memes/cloudbuild/google//modules/github | 1.1.0 |
 
 ## Resources
 

@@ -12,7 +12,7 @@ terraform {
 # GitHub branch.
 module "trigger" {
   source      = "memes/cloudbuild/google//modules/github"
-  version     = "1.0.1"
+  version     = "1.1.0"
   name        = "example-github-branch"
   description = "An example Cloud Build trigger on branch changes in GitHub repo."
   source_repo = var.source_repo

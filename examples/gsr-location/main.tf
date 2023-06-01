@@ -12,7 +12,7 @@ terraform {
 # in matching GSR branch.
 module "trigger" {
   source      = "memes/cloudbuild/google//modules/google-source-repo"
-  version     = "1.0.1"
+  version     = "1.1.0"
   name        = "example-gsr-location"
   description = "An example Cloud Build trigger on branch updates in Google Source Repository that builds in us-west1."
   source_repo = var.source_repo
