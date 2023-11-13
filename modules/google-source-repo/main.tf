@@ -20,6 +20,7 @@ module "trigger" {
   included_files  = var.included_files
   substitutions   = var.substitutions
   filename        = var.filename
+  local_filename  = var.local_filename
   invert_regex    = var.invert_regex
   dir             = var.dir
   trigger_config = {
