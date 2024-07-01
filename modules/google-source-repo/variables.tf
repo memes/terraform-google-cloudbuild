@@ -100,15 +100,20 @@ EOD
 }
 
 variable "filename" {
-  type = string
-  validation {
-    condition     = coalesce(var.filename, "unspecified") != "unspecified"
-    error_message = "The Cloud Build filename must not be empty."
-  }
+  type        = string
   default     = "cloudbuild.yml"
   description = <<-EOD
 The path, relative to repository root, to the Cloud Build YAML file. The default
 configuration will declare the filename 'cloudbuild.yml'.
+EOD
+}
+
+variable "local_filename" {
+  type        = string
+  default     = null
+  description = <<-EOD
+The path, relative to where terraform module are created, to the Cloud Build YAML file. The default
+configuration will left it unspecified.
 EOD
 }
 
