@@ -3,8 +3,9 @@
 steps:
   - id: echo
     name: busybox:$_BUSYBOX_TAG
+    entrypoint: "echo"
     args:
-      - echo "$_MSG"
+      - "$_MSG"
 substitutions:
   # Busybox tag to use
   _BUSYBOX_TAG: '1.35.0'
