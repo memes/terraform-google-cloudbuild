@@ -67,7 +67,7 @@ No resources.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The GCP project id where the Cloud Build trigger will be installed. | `string` | n/a | yes |
-| <a name="input_source_repo"></a> [source\_repo](#input\_source\_repo) | The Google Source Repository repository that will be the source of Cloud Build<br>trigger events. Must be a fully-qualified repo name of the form<br>'projects/my-gcp-project/repos/my-repo'. | `string` | n/a | yes |
+| <a name="input_source_repo"></a> [source\_repo](#input\_source\_repo) | The Google Source Repository repository that will be the source of Cloud Build<br/>trigger events. Must be a fully-qualified repo name of the form<br/>'projects/my-gcp-project/repos/my-repo'. | `string` | n/a | yes |
 
 ## Outputs
 

@@ -72,7 +72,7 @@ No resources.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The GCP project id where the Cloud Build trigger will be installed. | `string` | n/a | yes |
-| <a name="input_source_repo"></a> [source\_repo](#input\_source\_repo) | The GitHub repository that will be the source of Cloud Build trigger events. Must<br>be in the form owner/repo. For example, to trigger off events in this repo,<br>`source_repo = "memes/terraform-google-cloudbuild"`. | `string` | n/a | yes |
+| <a name="input_source_repo"></a> [source\_repo](#input\_source\_repo) | The GitHub repository that will be the source of Cloud Build trigger events. Must<br/>be in the form owner/repo. For example, to trigger off events in this repo,<br/>`source_repo = "memes/terraform-google-cloudbuild"`. | `string` | n/a | yes |
 
 ## Outputs
 
