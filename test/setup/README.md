@@ -23,7 +23,7 @@ github_repo = "owner/repo"
 ```
 
 <!-- markdownlint-disable MD033 MD034 -->
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -60,5 +60,5 @@ github_repo = "owner/repo"
 |------|-------------|
 | <a name="output_harness_tfvars"></a> [harness\_tfvars](#output\_harness\_tfvars) | The name of the generated harness.tfvars file that will be a common input to all<br>test fixtures. |
 | <a name="output_sa"></a> [sa](#output\_sa) | The email identifier of the service account created for trigger testing. |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
 <!-- markdownlint-enable MD033 MD034 -->

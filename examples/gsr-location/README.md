@@ -47,7 +47,7 @@ given in [cloudbuild.yml](cloudbuild.yml) whenever changes are pushed to GitHub
 in a branch that matches the regular expression `main$`.
 
 <!-- markdownlint-disable no-inline-html no-bare-urls -->
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -78,5 +78,5 @@ No resources.
 |------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | The fully-qualified identifier of the created Cloud Build trigger. |
 | <a name="output_trigger_id"></a> [trigger\_id](#output\_trigger\_id) | The project-local identifier of the created Cloud Build trigger. |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
 <!-- markdownlint-enable no-inline-html no-bare-urls -->
